@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pos_number_entries">
+        <item>POS 1</item>
+        <item>POS 2</item>
+        <item>POS 3</item>
+        <item>POS 4</item>
+        <item>POS 5</item>
+    </string-array>
+
+    <string-array name="pos_number_values">
+        <item>P1</item>
+        <item>P2</item>
+        <item>P3</item>
+        <item>P4</item>
+        <item>P5</item>
+    </string-array>
+</resources>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="location_entries">
+        <item>Tema</item>
+        <item>Tesano</item>
+        <item>Online</item>
+    </string-array>
+
+    <string-array name="location_values">
+        <item>LOC1</item>
+        <item>LOC2</item>
+        <item>LOC3</item>
+    </string-array>
+</resources>

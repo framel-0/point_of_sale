@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.sipconsult.pos.SharedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.payment.paymentmethod.complimentary.ComplimentaryFragment">
+
+
+        <TextView
+            android:id="@+id/textComplimentaryDue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_due"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textComplimentary"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textComplimentaryTitle" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextComplimentaryDue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_due"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.totalPrice.toString()}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextComplimentaryNumber"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textComplimentaryDue" />
+
+        <TextView
+            android:id="@+id/textComplimentary"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_complimentary_number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textComplimentaryAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textComplimentaryDue"
+            app:layout_constraintTop_toTopOf="@+id/textComplimentaryDue" />
+
+        <EditText
+            android:id="@+id/editTextComplimentaryNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_mobile_number"
+            android:inputType="phone"
+            android:text="@={viewModel.editTextComplimentaryNumber}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextComplimentaryAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextComplimentaryDue"
+            app:layout_constraintTop_toBottomOf="@+id/textComplimentary" />
+
+        <TextView
+            android:id="@+id/textComplimentaryAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_amount"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textComplimentaryChange"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textComplimentary"
+            app:layout_constraintTop_toTopOf="@+id/textComplimentary" />
+
+        <EditText
+            android:id="@+id/editTextComplimentaryAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_amount_paid"
+            android:inputType="numberDecimal"
+            android:text="@={viewModel.editTextComplimentaryAmount}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextComplimentaryChange"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextComplimentaryNumber"
+            app:layout_constraintTop_toBottomOf="@+id/textComplimentaryAmount" />
+
+        <TextView
+            android:id="@+id/textComplimentaryChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_change"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textComplimentaryAmount"
+            app:layout_constraintTop_toTopOf="@+id/textComplimentaryAmount" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextComplimentaryChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_change"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.change}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextComplimentaryAmount"
+            app:layout_constraintTop_toBottomOf="@+id/textComplimentaryChange" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <net.sipconsult.pos.util.MyKeyboard
+            android:id="@+id/keyboardPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98" />
+
+        <TextView
+            android:id="@+id/textComplimentaryTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="COMPLIMENTARY"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

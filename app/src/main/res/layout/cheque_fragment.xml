@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.sipconsult.pos.SharedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.payment.paymentmethod.cheque.ChequeFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <net.sipconsult.pos.util.MyKeyboard
+            android:id="@+id/keyboardCheque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            tools:visibility="gone" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98" />
+
+        <TextView
+            android:id="@+id/textTitleCheque"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="CHEQUE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textChequeDue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_due"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textCheque"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTitleCheque" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextChequeDue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_due"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.totalPrice.toString()}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextChequeCardNumber"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textChequeDue" />
+
+        <TextView
+            android:id="@+id/textCheque"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Cheque Number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textChequeAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textChequeDue"
+            app:layout_constraintTop_toTopOf="@+id/textChequeDue" />
+
+        <EditText
+            android:id="@+id/editTextChequeCardNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Cheque Number"
+            android:inputType="phone"
+            android:text="@={viewModel.editTextChequeNumber}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextChequeAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextChequeDue"
+            app:layout_constraintTop_toBottomOf="@+id/textCheque" />
+
+        <TextView
+            android:id="@+id/textChequeAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_amount"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textChequeChange"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textCheque"
+            app:layout_constraintTop_toTopOf="@+id/textCheque" />
+
+        <EditText
+            android:id="@+id/editTextChequeAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_amount_paid"
+            android:inputType="numberDecimal"
+            android:text="@={viewModel.editTextChequeAmount}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextChequeChange"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextChequeCardNumber"
+            app:layout_constraintTop_toBottomOf="@+id/textChequeAmount" />
+
+        <TextView
+            android:id="@+id/textChequeChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_change"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textChequeAmount"
+            app:layout_constraintTop_toTopOf="@+id/textChequeAmount" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextChequeChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_change"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.change}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextChequeAmount"
+            app:layout_constraintTop_toBottomOf="@+id/textChequeChange" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

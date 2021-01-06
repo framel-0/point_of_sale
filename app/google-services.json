@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "308060386354",
+    "firebase_url": "https://jubensippos.firebaseio.com",
+    "project_id": "pos",
+    "storage_bucket": "pos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308060386354:android:06fc32e9d4c1306650382b",
+        "android_client_info": {
+          "package_name": "net.sipconsult.pos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "308060386354-i1bide6i48cilsrktrjvecfotbftaftl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.sipconsult.pos",
+            "certificate_hash": "2105ece7e7927c8a9088d90a7920b941e4eb351a"
+          }
+        },
+        {
+          "client_id": "308060386354-ji54jsju1udmu6edtd934aiaudeaggqr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVeq1OK8tFTdkizbgPbHNBjkdUex_Syd4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "308060386354-ji54jsju1udmu6edtd934aiaudeaggqr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

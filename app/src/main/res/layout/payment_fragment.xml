@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.sipconsult.pos.SharedViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.payment.PaymentFragment">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinePaymentStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.35" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinePaymentEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentEnd"
+            app:layout_constraintStart_toStartOf="@+id/guideline">
+
+            <Button
+                android:id="@+id/buttonPaymentBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:drawableLeft="@drawable/ic_baseline_navigate_before_24"
+                android:text="@string/text_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonPaymentValidate"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonPaymentValidate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:drawableEnd="@drawable/ic_navigate_next_white_24dp"
+                android:text="Validate"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonPaymentBack"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listPaymentMethod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:padding="10dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/textDeliveryCost"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentStart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:listitem="@layout/list_item_payment_method" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="progressBarLoading" />
+
+        <ProgressBar
+            android:id="@+id/progressBarLoading"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/listPaymentMethod"
+            app:layout_constraintEnd_toEndOf="@+id/listPaymentMethod"
+            app:layout_constraintStart_toStartOf="@+id/listPaymentMethod"
+            app:layout_constraintTop_toTopOf="@+id/listPaymentMethod" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listDiscountType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentStart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/editTextDeliveryCost"
+            tools:itemCount="4"
+            tools:listitem="@layout/list_item_discount_type" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupLoadingDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="textLoadingDiscount,progressBarLoadingDiscount" />
+
+        <ProgressBar
+            android:id="@+id/progressBarLoadingDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/textLoadingDiscount"
+            app:layout_constraintEnd_toEndOf="@+id/listDiscountType"
+            app:layout_constraintStart_toStartOf="@+id/listDiscountType"
+            app:layout_constraintTop_toTopOf="@+id/listDiscountType"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textLoadingDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_loading"
+            app:layout_constraintBottom_toBottomOf="@+id/listDiscountType"
+            app:layout_constraintEnd_toEndOf="@+id/progressBarLoadingDiscount"
+            app:layout_constraintStart_toStartOf="@+id/progressBarLoadingDiscount"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarLoadingDiscount" />
+
+        <FrameLayout
+            android:id="@+id/framePaymentMethod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentEnd"
+            app:layout_constraintStart_toEndOf="@+id/guidelinePaymentStart"
+            app:layout_constraintTop_toBottomOf="@+id/textSalesAgent">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fragmentPaymentMethods"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/mobile_navigation_payment_method" />
+
+        </FrameLayout>
+
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupPaymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="textTotalAmountCart,textSelectPaymentMethod,textPaymentDiscount" />
+
+        <TextView
+            android:id="@+id/textTotalAmountCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display4"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textPaymentDiscount"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/guidelinePaymentStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="GHC 150" />
+
+        <TextView
+            android:id="@+id/textSelectPaymentMethod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please select a Payment Method"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toEndOf="@+id/textTotalAmountCart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/textTotalAmountCart"
+            app:layout_constraintTop_toBottomOf="@+id/textPaymentDiscount" />
+
+        <TextView
+            android:id="@+id/textPaymentDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/textSelectPaymentMethod"
+            app:layout_constraintEnd_toEndOf="@+id/textTotalAmountCart"
+            app:layout_constraintStart_toStartOf="@+id/textTotalAmountCart"
+            app:layout_constraintTop_toBottomOf="@+id/textTotalAmountCart"
+            tools:text="with 50% discount" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupPaymentMethodTransaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="progressBarPaymentMethodTransaction,textPaymentMethodTransactionLoading"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBarPaymentMethodTransaction"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/textPaymentMethodTransactionLoading"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelinePaymentStart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textPaymentMethodTransactionLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_pleas_wait"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentEnd"
+            app:layout_constraintStart_toStartOf="@+id/guidelinePaymentStart"
+            app:layout_constraintTop_toBottomOf="@+id/progressBarPaymentMethodTransaction" />
+
+        <TextView
+            android:id="@+id/textSalesAgent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Sales Agent: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/textSalesAgentName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/guidelinePaymentStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textSalesAgentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOHN DOE"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/textSalesAgent"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentEnd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textSalesAgent"
+            app:layout_constraintTop_toTopOf="@+id/textSalesAgent" />
+
+        <EditText
+            android:id="@+id/editTextDeliveryCost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="0.0"
+            android:inputType="numberDecimal"
+            android:text="@={viewModel.editTextDeliveryCost}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/listDiscountType"
+            app:layout_constraintEnd_toStartOf="@+id/buttonDeliveryCostAdd"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="@+id/textDeliveryCost"
+            app:layout_constraintTop_toBottomOf="@+id/textDeliveryCost" />
+
+        <TextView
+            android:id="@+id/textDeliveryCost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Delivery Cost: "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toTopOf="@+id/editTextDeliveryCost"
+            app:layout_constraintEnd_toStartOf="@+id/guidelinePaymentStart"
+            app:layout_constraintStart_toEndOf="@+id/guideline"
+            app:layout_constraintTop_toBottomOf="@+id/listPaymentMethod" />
+
+        <Button
+            android:id="@+id/buttonDeliveryCostAdd"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Add"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextDeliveryCost"
+            app:layout_constraintEnd_toStartOf="@+id/buttonDeliveryCostSub"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextDeliveryCost"
+            app:layout_constraintTop_toTopOf="@+id/editTextDeliveryCost" />
+
+        <Button
+            android:id="@+id/buttonDeliveryCostSub"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Sub"
+            app:layout_constraintBottom_toBottomOf="@+id/buttonDeliveryCostAdd"
+            app:layout_constraintEnd_toEndOf="@+id/textDeliveryCost"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/buttonDeliveryCostAdd"
+            app:layout_constraintTop_toTopOf="@+id/buttonDeliveryCostAdd" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

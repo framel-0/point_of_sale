@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">Juben POS</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_main">Juben House of Beauty</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+
+    <!--instruction-->
+    <string name="toast_3">Bluetooth device is unavailable</string>
+    <string name="toast_4">Bluetooth device not detected. Please open Bluetooth!</string>
+    <string name="toast_5">Not Found InnterPrinter!</string>
+    <string name="toast_6">Bluetooth connect failed!</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="transaction_failed">"Transaction failed"</string>
+    <string name="voucher_failed">"Voucher Not found or Used"</string>
+    <string name="text_print_receipt">Print Receipt</string>
+    <string name="text_next_order">Next Order</string>
+    <string name="text_back">Back</string>
+    <string name="text_loading">Loading…</string>
+
+    <string name="menu_sales_transaction">Sales Transaction</string>
+    <string name="menu_settings">Settings</string>
+    <!-- Preference Titles -->
+    <string name="location">Location</string>
+    <string name="pos">POS</string>
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
+    <string name="location_title">Shop locations</string>
+    <string name="pos_title">POS Number</string>
+    <string name="text_scan">Scan</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="text_amount">Amount Paid</string>
+    <string name="text_change">Change</string>
+    <string name="text_mobile_number">Mobile Number</string>
+    <string name="text_complimentary_number">Number</string>
+    <string name="hint_change">Change</string>
+    <string name="hint_due">Due</string>
+    <string name="text_due">Due</string>
+    <string name="hint_mobile_number">Mobile Number</string>
+    <string name="hint_amount_paid">Amount Paid</string>
+    <string name="text_pleas_wait">Pleas wait....</string>
+
+</resources>

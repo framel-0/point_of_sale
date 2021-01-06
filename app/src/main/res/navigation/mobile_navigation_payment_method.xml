@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/cashFragment">
+
+    <fragment
+        android:id="@+id/cashFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.cash.CashFragment"
+        android:label="cash_fragment"
+        tools:layout="@layout/cash_fragment" />
+    <fragment
+        android:id="@+id/mobileMoneyFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.mobilemoney.MobileMoneyFragment"
+        android:label="mobile_money_fragment"
+        tools:layout="@layout/mobile_money_fragment" />
+    <fragment
+        android:id="@+id/loyaltyFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.loyalty.LoyaltyFragment"
+        android:label="loyalty_fragment"
+        tools:layout="@layout/loyalty_fragment" />
+    <fragment
+        android:id="@+id/cardFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.card.CardFragment"
+        android:label="CardFragment" />
+    <fragment
+        android:id="@+id/chequeFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.cheque.ChequeFragment"
+        android:label="cheque_fragment"
+        tools:layout="@layout/cheque_fragment" />
+    <fragment
+        android:id="@+id/complimentaryFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.complimentary.ComplimentaryFragment"
+        android:label="ComplimentaryFragment" />
+    <fragment
+        android:id="@+id/cashDollarFragment"
+        android:name="net.sipconsult.pos.ui.payment.paymentmethod.cashDollar.CashDollarDollarFragment"
+        android:label="CashDollarFragment" />
+</navigation>

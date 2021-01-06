@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="net.sipconsult.pos.SharedViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.payment.paymentmethod.mobilemoney.MobileMoneyFragment">
+
+
+        <TextView
+            android:id="@+id/textMobileMoneyDue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/text_due"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textMobileMoney"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMobileMoneyDue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_due"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.totalPrice.toString()}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextMobileMoneyPhoneNumber"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textMobileMoneyDue" />
+
+        <TextView
+            android:id="@+id/textMobileMoney"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_mobile_number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textMobileMoneyAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textMobileMoneyDue"
+            app:layout_constraintTop_toTopOf="@+id/textMobileMoneyDue" />
+
+        <EditText
+            android:id="@+id/editTextMobileMoneyPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_mobile_number"
+            android:inputType="phone"
+            android:text="@={viewModel.editTextMobileMoneyPhoneNumber}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextMobileMoneyAmount"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextMobileMoneyDue"
+            app:layout_constraintTop_toBottomOf="@+id/textMobileMoney" />
+
+        <TextView
+            android:id="@+id/textMobileMoneyAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_amount"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/textMobileMoneyChange"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textMobileMoney"
+            app:layout_constraintTop_toTopOf="@+id/textMobileMoney" />
+
+        <EditText
+            android:id="@+id/editTextMobileMoneyAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/hint_amount_paid"
+            android:inputType="numberDecimal"
+            android:text="@={viewModel.editTextMobileMoneyAmount}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/editTextMobileMoneyChange"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextMobileMoneyPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@+id/textMobileMoneyAmount" />
+
+        <TextView
+            android:id="@+id/textMobileMoneyChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_change"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textMobileMoneyAmount"
+            app:layout_constraintTop_toTopOf="@+id/textMobileMoneyAmount" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMobileMoneyChange"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/hint_change"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.change}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/editTextMobileMoneyAmount"
+            app:layout_constraintTop_toBottomOf="@+id/textMobileMoneyChange" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <net.sipconsult.pos.util.MyKeyboard
+            android:id="@+id/keyboardPayment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.98" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="MOBILE MONEY"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="net.sipconsult.pos.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="net.sipconsult.pos.ui.payment.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/payment_fragment">
+        <action
+            android:id="@+id/action_paymentFragment_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
+        <argument
+            android:name="transactionType"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/receiptFragment"
+        android:name="net.sipconsult.pos.ui.receipt.ReceiptFragment"
+        android:label="Receipt"
+        tools:layout="@layout/receipt_fragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="net.sipconsult.pos.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/nav_sales_transaction"
+        android:name="net.sipconsult.pos.ui.transactions.SalesTransactionFragment"
+        android:label="Sales Transaction"
+        tools:layout="@layout/sales_transaction_fragment">
+        <action
+            android:id="@+id/action_nav_sales_transaction_to_refundFragment"
+            app:destination="@id/refundFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="net.sipconsult.pos.ui.settings.SettingsFragment"
+        android:label="Settings" />
+    <fragment
+        android:id="@+id/refundFragment"
+        android:name="net.sipconsult.pos.ui.transactions.refund.RefundFragment"
+        android:label="RefundFragment">
+        <argument
+            android:name="transactionId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_refundFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+</navigation>

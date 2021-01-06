@@ -1,0 +1,60 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <EditTextPreference
+            app:key="signature"
+            app:title="@string/signature_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+  -->
+    <!--
+
+        <PreferenceCategory app:title="@string/sync_header">
+
+            <SwitchPreferenceCompat
+                app:key="sync"
+                app:title="@string/sync_title" />
+
+            <SwitchPreferenceCompat
+                app:dependency="sync"
+                app:key="attachment"
+                app:summaryOff="@string/attachment_summary_off"
+                app:summaryOn="@string/attachment_summary_on"
+                app:title="@string/attachment_title" />
+
+        </PreferenceCategory>
+
+    -->
+    <PreferenceCategory app:title="@string/location">
+        <ListPreference
+            app:key="location"
+            app:title="@string/location_title"
+            app:summary="%s"
+            app:defaultValue="LOC2"
+            app:entries="@array/location_entries"
+            app:entryValues="@array/location_values">
+
+        </ListPreference>
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="@string/pos">
+        <ListPreference
+            app:key="pos_number"
+            app:title="@string/pos_title"
+            app:summary="%s"
+            app:defaultValue="P1"
+            app:entries="@array/pos_number_entries"
+            app:entryValues="@array/pos_number_values"></ListPreference>
+    </PreferenceCategory>
+
+</PreferenceScreen>
